@@ -107,7 +107,7 @@ void scored() {
 
 // back to the start
 void resetgame() {
- randomSeed(analogRead(0));
+ gb.pickRandomSeed();
  score = 0;
  ball_speed = 1;
  ball_y = ball_start;
@@ -122,7 +122,7 @@ void lose(){
 
 // Let's get going.
 void setup(){
-  randomSeed(analogRead(0));
+  gb.pickRandomSeed();
   gb.begin();
   gb.titleScreen(F("PixelGuff Presents:"),logo);
 }
@@ -202,7 +202,7 @@ void loop(){
     
     // back to the title screen on Button C.  
     if(gb.buttons.pressed(BTN_C)){
-      randomSeed(analogRead(0));
+      gb.pickRandomSeed();
       gb.titleScreen(F("PixelGuff Presents:"),logo);
       resetgame();
     }
